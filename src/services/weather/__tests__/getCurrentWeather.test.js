@@ -1,7 +1,7 @@
 const axios = require('axios');
 const getCurrentWeatherService = require('../getCurrentWeather');
-const {weather} = require("../../../tests/mock/weather.data");
-const config = require("../../configs/config");
+const weather = require("../../../../tests/mock/weather.data");
+const config = require("../../../configs/config");
 describe('Get Current Weather', () => {
   it('should call axios with several parameter', async () => {
     const axiosSpy = jest.spyOn(axios, 'get');
