@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.4.0",
     "body-parser": "^1.20.2",
     "colorizer": "^2.0.2",
     "compression": "^1.7.4",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "jest": "^29.6.3",
+    "nock": "^13.3.3",
     "supertest": "^6.3.3"
   }
 }

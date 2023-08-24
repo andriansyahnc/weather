@@ -9,4 +9,6 @@ module.exports = {
   coverageProvider: "v8",
   testEnvironment: "node",
   coveragePathIgnorePatterns: ["/node_modules/", "/tests/"],
+  setupFiles: ["dotenv/config"],
+  bail: 1,
 };
