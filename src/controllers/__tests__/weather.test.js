@@ -12,6 +12,6 @@ describe('Weather', () => {
         lon: 10.99
       });
     expect(response.status).toBe(200);
-    expect(response.body).toEqual({...weather, status: "OK"})
+    expect(response.body).toEqual({ data: weather, status: "OK"});
   });
 });

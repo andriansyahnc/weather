@@ -1,5 +1,5 @@
 const axios = require('axios');
-const findCountryService = require('../findCountry');
+const findCountryService = require('../findCountriesByName');
 const countries = require('../../../../tests/mock/countries.data');
 const config = require("../../../configs/config");
 describe('Find Country Service', () => {

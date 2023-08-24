@@ -1,9 +1,9 @@
 const axios = require('axios');
 const config = require('../../configs/config');
 
-const findCountry = (countryName) => {
+const findCountriesByName = async (countryName) => {
   const url = `${config.weatherBaseUrl}/geo/1.0/direct`;
-  return axios.get(url, {
+  return await axios.get(url, {
     params: {
       q: countryName,
       limit: 5,
@@ -11,4 +11,4 @@ const findCountry = (countryName) => {
     }})
 }
 
-module.exports = findCountry;
+module.exports = findCountriesByName;
