@@ -2,6 +2,6 @@ const express = require("express");
 const {getCurrentWeather} = require("../controllers/weather");
 
 const router = express.Router();
-router.post("/", getCurrentWeather);
+router.get("/", getCurrentWeather);
 
 module.exports = router;

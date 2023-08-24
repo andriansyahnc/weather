@@ -6,8 +6,8 @@ jest.mock('../../services/getCurrentWeather');
 
 describe('Weather', () => {
   it('should call the weather service and return 200', async () => {
-    const response = await request(app.server).post('/weather')
-      .send({
+    const response = await request(app.server).get('/weather')
+      .query({
         lat: 44.34,
         lon: 10.99
       });
