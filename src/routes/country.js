@@ -2,6 +2,6 @@ const express = require("express");
 const {findCountriesByName} = require("../controllers/country");
 
 const router = express.Router();
-router.get("/", findCountriesByName);
+router.get("/find", findCountriesByName);
 
 module.exports = router;

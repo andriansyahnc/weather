@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+        title Feedback Form
+        script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+        script(src="/js/index.js")
+    body
+
+        div(id="weather-result" hidden=true)
+            div(id="weather-result-label") Weather result
+            div(id="weather-result-value")
+            div(id="weather-result-icon-div")
+                img(id="weather-result-icon")
+
+        .form
+            h2 Weather
+            form(action="/feedback_form",method="POST")
+                label(for="name") Enter Your City
+                input#name(type="text", name="name")
+                ul#autocompleteResults
+                button(type="submit" id='submit') Submit
