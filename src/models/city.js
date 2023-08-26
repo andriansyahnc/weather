@@ -16,10 +16,19 @@ module.exports = (sequelize, DataTypes) => {
   city.init({
     name: DataTypes.STRING,
     state: DataTypes.STRING,
-    country: DataTypes.STRING
+    country: DataTypes.STRING,
+    lat: DataTypes.DECIMAL,
+    lon: DataTypes.DECIMAL
   }, {
     sequelize,
     modelName: 'city',
+    underscored: true,
+    indexes: [
+      {
+        unique: true,
+        fields: ['lat', 'lon'],
+      },
+    ],
   });
   return city;
 };

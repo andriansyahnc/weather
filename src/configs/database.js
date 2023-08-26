@@ -1,16 +1,15 @@
-import * as fs from "fs";
+const fs = require('fs');
+const config = require('./config');
 
-const config = require('config');
 const databaseConfig = {
   development: {
     username: config.username,
     password: config.password,
-    database: config.database,
+    database: config.dbName,
     host: config.database,
     port: 3306,
     dialect: 'mysql',
     dialectOptions: {
-      underscored: true,
       bigNumberStrings: true
     }
   },
@@ -22,7 +21,6 @@ const databaseConfig = {
     port: 3306,
     dialect: 'mysql',
     dialectOptions: {
-      underscored: true,
       bigNumberStrings: true
     }
   },
@@ -35,12 +33,8 @@ const databaseConfig = {
     dialect: 'mysql',
     dialectOptions: {
       bigNumberStrings: true,
-      underscored: true,
-      ssl: {
-        ca: fs.readFileSync(__dirname + '/mysql-ca-main.crt')
-      }
     }
   }
 }
 
-export default databaseConfig;
+module.exports = databaseConfig;

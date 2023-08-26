@@ -18,14 +18,26 @@ module.exports = {
       country: {
         type: Sequelize.STRING
       },
-      createdAt: {
+      lat: {
+        type: Sequelize.DECIMAL
+      },
+      lon: {
+        type: Sequelize.DECIMAL
+      },
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }
+    });
+
+    await queryInterface.addConstraint('cities', {
+      fields: ['lat', 'lon'],
+      type: 'unique',
+      name: 'unique_lat_lon_constraint',
     });
   },
   async down(queryInterface, Sequelize) {
