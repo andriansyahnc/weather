@@ -1,12 +1,18 @@
-const {db} = require('../models');
+const Models = require('../models');
 
 const cityRepository = {
-  findOne(data) {
-    db.city.findOne({
-      where: {
-        lat: data.lat,
-        lon: data.lon,
-      },
+  findOne({ lat, lon }) {
+    return Models.city.findOne({
+      where: { lat, lon },
+    })
+  },
+  create({ lat, lon, city, state, country }) {
+    return Models.city.create({
+      city,
+      state,
+      country,
+      lat,
+      lon,
     })
   }
 }

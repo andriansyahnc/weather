@@ -8,7 +8,10 @@ const databaseConfig = require('../configs/database');
 const config = require('../configs/config');
 const db = {};
 
-const sequelize = new Sequelize(databaseConfig[config.nodeEnv], config);
+const databaseConfigData = databaseConfig[config.nodeEnv];
+const url = `mysql://${databaseConfigData.username}:${databaseConfigData.password}@${databaseConfigData.host}/${databaseConfigData.database}`;
+console.log(url);
+const sequelize = new Sequelize(url, config);
 
 fs
   .readdirSync(__dirname)

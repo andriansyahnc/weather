@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       forecast.belongsTo(models.city, {
-        foreignKey: 'cityId',
+        foreignKey: 'city_id',
         as: 'city'
       })
     }
@@ -20,7 +20,9 @@ module.exports = (sequelize, DataTypes) => {
     temperature: DataTypes.STRING,
     description: DataTypes.STRING,
     icon: DataTypes.STRING,
-    cityId: DataTypes.INTEGER
+    cityId: DataTypes.INTEGER,
+    tsStart: DataTypes.INTEGER,
+    tsEnd: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'forecast',

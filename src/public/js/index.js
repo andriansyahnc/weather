@@ -13,9 +13,8 @@ $(document).ready(() => {
             $('#submit').attr('disabled', 'disabled');
           }
           data.data.forEach(function(item) {
-            console.log(item);
             const name = `${item.name}${item.state ? `, ${item.state}` : ""} (${item.country})`;
-            $('#autocompleteResults').append(`<li name="${name}" lat="${item.lat}" lon="${item.lon}">${name}</li>`);
+            $('#autocompleteResults').append(`<li city="${item.name}" state="${item.state}" country="${item.country}" cityFullName="${name}" lat="${item.lat}" lon="${item.lon}">${name}</li>`);
           });
         },
         error: function(error) {
@@ -27,9 +26,12 @@ $(document).ready(() => {
   });
 
   $('#autocompleteResults').on('click', 'li', function (event) {
-    $('#name').val($(this).attr('name'));
+    $('#name').val($(this).attr('cityFullName'));
     $('#name').attr('lat', $(this).attr('lat'));
     $('#name').attr('lon', $(this).attr('lon'));
+    $('#name').attr('city', $(this).attr('city'));
+    $('#name').attr('state', $(this).attr('state'));
+    $('#name').attr('country', $(this).attr('country'));
     $('#autocompleteResults').empty();
     $('#submit').removeAttr('disabled');
   });
@@ -39,9 +41,12 @@ $(document).ready(() => {
 
     const lat = $('#name').attr('lat');
     const lon = $('#name').attr('lon');
+    const city = $('#name').attr('city');
+    const state = $('#name').attr('state');
+    const country = $('#name').attr('country');
 
     $.ajax({
-      url: `/weather?lat=${lat}&lon=${lon}`,
+      url: `/weather?lat=${lat}&lon=${lon}&city=${city}&state=${state}&country=${country}`,
       method: 'GET',
       success: function(data) {
         const temperature = data.data.main.temp;

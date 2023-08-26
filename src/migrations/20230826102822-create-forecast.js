@@ -18,7 +18,7 @@ module.exports = {
       icon: {
         type: Sequelize.STRING
       },
-      cityId: {
+      city_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -27,6 +27,12 @@ module.exports = {
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
+      },
+      ts_start: {
+        type: Sequelize.INTEGER
+      },
+      ts_end: {
+        type: Sequelize.INTEGER
       },
       created_at: {
         allowNull: false,
