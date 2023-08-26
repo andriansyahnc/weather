@@ -1,5 +1,5 @@
 const weather = require("../../../../tests/mock/forecast.data");
-const getCurrentForecast = (lat, lon) => {
+const getCurrentWeather = (lat, lon) => {
   if (lat === 0 && lon === 0) {
     throw new Error('Something wrong');
   }
@@ -8,4 +8,4 @@ const getCurrentForecast = (lat, lon) => {
   };
 }
 
-module.exports = getCurrentForecast;
+module.exports = getCurrentWeather;

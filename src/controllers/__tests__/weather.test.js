@@ -2,7 +2,7 @@ const request = require('supertest');
 const app = require('../../app');
 const weather = require("../../../tests/mock/forecast.data");
 
-jest.mock('../../services/weather/getCurrentForecast');
+jest.mock('../../services/weather/getCurrentWeather');
 
 describe('Weather', () => {
   it('should call the forecast service and return 200', async () => {

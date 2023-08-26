@@ -1,4 +1,4 @@
-const getCurrentWeatherService = require("../services/weather/getCurrentForecast");
+const getCurrentWeatherService = require("../services/weather/getCurrentWeather");
 const getCurrentWeather = async (req, res) => {
   const { lat, lon } = req.query;
   try {
