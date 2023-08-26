@@ -1,11 +1,17 @@
 ## Weather
 
 ### Prerequisites
-1. run `npm install`
+1. node v18
+2. sequelize-cli `npm install -g sequelize-cli`
+3. mysql
+4. account on https://openweathermap.org
 
 ### How to install
-1. run `cp .env.example .env`
-2. run `npm run start`
+1. create database `weather` 
+2. run `cp .env.example .env`
+3. update credentials.
+4. run `sequelize-cli db:migrate`
+5. run `npm run start`
 
 ### How to test
 1. run `npm run test` or `npm run test:coverage` if you want to generate coverage.
