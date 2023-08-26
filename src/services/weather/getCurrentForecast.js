@@ -1,8 +1,8 @@
 const axios = require('axios');
 const config = require('../../configs/config');
 
-const getCurrentWeather = async (lat, lon) => {
-  const url = `${config.weatherBaseUrl}/data/2.5/weather`;
+const getCurrentForecast = async (lat, lon) => {
+  const url = `${config.weatherBaseUrl}/data/2.5/forecast`;
   return await axios.get(url, {
     params: {
       lat,
@@ -12,4 +12,4 @@ const getCurrentWeather = async (lat, lon) => {
   })
 }
 
-module.exports = getCurrentWeather;
+module.exports = getCurrentForecast;
