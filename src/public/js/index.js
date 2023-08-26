@@ -44,16 +44,16 @@ $(document).ready(() => {
     const city = $('#name').attr('city');
     const state = $('#name').attr('state');
     const country = $('#name').attr('country');
+    const cityName = $('#name').val();
 
     $.ajax({
       url: `/weather?lat=${lat}&lon=${lon}&city=${city}&state=${state}&country=${country}`,
       method: 'GET',
       success: function(data) {
-        const temperature = data.data.main.temp;
-        const weatherDes = data.data.weather[0].description;
-        const icon = data.data.weather[0].icon;
+        const temperature = data.data.temperature;
+        const weatherDes = data.data.description;
+        const icon = data.data.icon;
         const imageURL = "http://openweathermap.org/img/wn/"+ icon + "@2x.png";
-        const cityName = data.data.name;
         $('#weather-result').removeAttr('hidden');
         $('#weather-result-value').text(`The weather is ${temperature} degree celsius in ${cityName} and the description is ${weatherDes}`)
         $('#weather-result-icon').attr('src', imageURL);
