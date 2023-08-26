@@ -27,7 +27,8 @@ const fetchAndSaveForecasts = async (lat, lon, cityId) => {
       tsStart: forecast.dt,
       tsEnd: dayjs(forecast.dt).add('3', 'hour').unix(),
       temperature: forecast.main.temp,
-      description: `${forecast.weather.main} (${forecast.weather.description})`,
+      description: `${forecast.weather[0].main} (${forecast.weather[0].description})`,
+      icon: forecast.weather[0].icon,
       cityId: cityId,
     });
     forecastsData.push(forecastRow);
@@ -45,7 +46,7 @@ const getCurrentWeather = async (lat, lon, city, state, country) => {
 
   let forecastData = await forecastRepository.findByCity(cityData.id);
   if (!forecastData) {
-    forecastData = await fetchAndSaveForecasts(lat, lon);
+    forecastData = await fetchAndSaveForecasts(lat, lon, cityData.id);
   }
 
   return forecastData;

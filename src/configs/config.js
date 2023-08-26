@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 module.exports = {
-  port: process.env.PORT || 3035,
+  serverPort: process.env.SERVER_PORT || 3000,
   weatherBaseUrl: process.env.WEATHER_BASE_URL,
   weatherApiKey: process.env.WEATHER_API_KEY,
   database: process.env.DB_HOST,

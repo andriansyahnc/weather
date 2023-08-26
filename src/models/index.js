@@ -9,9 +9,8 @@ const config = require('../configs/config');
 const db = {};
 
 const databaseConfigData = databaseConfig[config.nodeEnv];
-const url = `mysql://${databaseConfigData.username}:${databaseConfigData.password}@${databaseConfigData.host}/${databaseConfigData.database}`;
-console.log(url);
-const sequelize = new Sequelize(url, config);
+const url = `mysql://${databaseConfigData.username}:${databaseConfigData.password}@${databaseConfigData.host}:${databaseConfigData.port}/${databaseConfigData.database}`;
+const sequelize = new Sequelize("mysql://root:Nce12345@localhost/weather", config);
 
 fs
   .readdirSync(__dirname)

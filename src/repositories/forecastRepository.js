@@ -20,13 +20,14 @@ const forecastRepository = {
       },
     })
   },
-  create3hrForecast({ tsStart, tsEnd, temperature, description, cityId }) {
+  create3hrForecast({ tsStart, tsEnd, temperature, description, cityId, icon }) {
     return Models.forecast.create({
       tsStart,
       tsEnd,
       temperature,
       description,
       cityId,
+      icon
     });
   }
 }

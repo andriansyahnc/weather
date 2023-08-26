@@ -19,10 +19,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       lat: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL(10,8)
       },
       lon: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL(10,8)
       },
       created_at: {
         allowNull: false,

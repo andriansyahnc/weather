@@ -13,7 +13,7 @@ const cityRepository = {
       country,
       lat,
       lon,
-    })
+    }, { logging: console.log })
   }
 }
 
