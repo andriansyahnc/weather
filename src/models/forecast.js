@@ -3,32 +3,28 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class city extends Model {
+  class forecast extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      city.hasMany(models.forecast)
+      forecast.belongsTo(models.city, {
+        foreignKey: 'cityId',
+        as: 'city'
+      })
     }
   }
-  city.init({
-    name: DataTypes.STRING,
-    state: DataTypes.STRING,
-    country: DataTypes.STRING,
-    lat: DataTypes.DECIMAL,
-    lon: DataTypes.DECIMAL
+  forecast.init({
+    temperature: DataTypes.STRING,
+    description: DataTypes.STRING,
+    icon: DataTypes.STRING,
+    cityId: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'city',
+    modelName: 'forecast',
     underscored: true,
-    indexes: [
-      {
-        unique: true,
-        fields: ['lat', 'lon'],
-      },
-    ],
   });
-  return city;
+  return forecast;
 };
